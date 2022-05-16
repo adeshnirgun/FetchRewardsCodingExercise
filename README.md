@@ -1,5 +1,5 @@
 # Fetch Rewards Coding Exercise - Backend Software Engineering
-##How To Run
+## How To Run
 Install packages from requirements.txt in your Python environment with the following command:
 code block: pipinstall -r requirement
 
