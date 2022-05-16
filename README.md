@@ -7,7 +7,7 @@
 `python fetch.py`
 
 3. You can access the API with the following URL:\
-http://127.0.0.1:5000
+`http://127.0.0.1:5000`
 
 ## API Endpoints
 **/add**: \
