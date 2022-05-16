@@ -6,6 +6,8 @@
 2. Start the Flask server with the following command:\
 `python fetch.py`
 
+3. You can access the API with the following URL:\
+http://127.0.0.1:5000
 
 ## API Endpoints
 **/add**: \
