@@ -4,7 +4,7 @@
 `pip install -r requirements.txt`
 
 2. Start the Flask server with the following command:\
-`python fetch.py code block`
+`python fetch.py`
 
 
 ## API Endpoints
