@@ -3,7 +3,7 @@
 1. Install packages from requirements.txt in your Python environment with the following command:\
 `pip install -r requirements.txt`\
 
-2. Start the Flask server with the following command\
+2. Start the Flask server with the following command:\
 `python fetch.py code block`\
 
 
