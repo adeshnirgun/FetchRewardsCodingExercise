@@ -7,6 +7,16 @@ from datetime import datetime as dt
 #global_txn_data contains all transaction records
 global_txn_data = []
 
+@app.route('/')
+def Home():
+    return '''
+    <B>Welcome to Fetch Rewards API</B>
+    <p>You can use the following endpoints:<br>
+    /add<br>
+    /spend<br>
+    /balance<br>
+    '''
+
 #/add: Adds a new transaction to global_txn_data, returns the payload
 @app.route('/add')
 def Add():
@@ -45,21 +55,24 @@ def Spend():
                     elem["points"] += entry["points"]
         else:
             spend_data.append(entry)
+    
     #create a current timestamp for each deduction and append it to global_txn_data 
     time_dict = {'timestamp' :  dt.now().strftime("%Y-%m-%dT%H:%M:%SZ")}
     [global_txn_data.append(i|time_dict) for i in spend_data]
+    
     return jsonify(spend_data) 
 
-#/balance: returns each payers' total number of points
+#/balance: returns each payer's total number of points
 @app.route('/balance')
 def returnBalance():
     updatedBalance={}
-    for data in global_txn_data:
-        if data["payer"] in updatedBalance:
-            newBalance = updatedBalance[data["payer"]] + data["points"]
-            updatedBalance[data["payer"]] = newBalance
+    #Iterates through global_txn_data to consolidate the point balances for each payer
+    for txn in global_txn_data:
+        if txn["payer"] in updatedBalance:
+            newBalance = updatedBalance[txn["payer"]] + txn["points"]
+            updatedBalance[txn["payer"]] = newBalance
         else:
-            updatedBalance[data["payer"]] = data["points"]
+            updatedBalance[txn["payer"]] = txn["points"]
     return updatedBalance
 
 if __name__ == "__main__":
