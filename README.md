@@ -19,7 +19,7 @@ The endpoint will return back the transaction that was added.\
   }`
 
 **/spend**: \
-This endpoint deducts a given number of points from the list of transactions. The request arguement should contain the number of points to deduct.\
+This endpoint deducts a given number of points from the list of transactions. The request argument should contain the number of points to deduct.\
 E.g. `/spend?points=1000` \
 The deductions are based on the following rules:\
     - Points are deducted from the oldest transactions first\
